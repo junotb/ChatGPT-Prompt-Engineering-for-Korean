@@ -21,18 +21,6 @@ const RootLayout = ({
 }: {
   children: React.ReactNode
 }) => {
-  const chapters: Chapter[] = [
-    {name: 'Introduction', description: '', link: '/introduction'},
-    {name: 'Guidance', description: '', link: '/guidance'},
-    {name: 'Iterative', description: '', link: '/iterative'},
-    {name: 'Inferring', description: '', link: '/inferring'},
-    {name: 'Summarizing', description: '', link: '/summarizing'},
-    {name: 'Transforming', description: '', link: '/transforming'},
-    {name: 'Expanding', description: '', link: '/expanding'},
-    {name: 'Chatbot', description: '', link: '/chatbot'},
-    {name: 'Conclusion', description: '', link: '/conclusion'},
-  ];
-
   return (
     <html lang="en">
       <body className={inter.className}>

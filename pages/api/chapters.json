@@ -1,0 +1,13 @@
+{
+  "Chapters" : [
+    {"name": "Introduction", "description": "", "link": "/introduction", "nextName": "Guidance", "nextLink": "/guidance"},
+    {"name": "Guidance", "description": "", "link": "/guidance", "nextName": "Iterative", "nextLink": "/iterative"},
+    {"name": "Iterative", "description": "", "link": "/iterative", "nextName": "Inferring", "nextLink": "/inferring"},
+    {"name": "Inferring", "description": "", "link": "/inferring", "nextName": "Summarizing", "nextLink": "/summarizing"},
+    {"name": "Summarizing", "description": "", "link": "/summarizing", "nextName": "Transforming", "nextLink": "/transforming"},
+    {"name": "Transforming", "description": "", "link": "/transforming", "nextName": "Expanding", "nextLink": "/expanding"},
+    {"name": "Expanding", "description": "", "link": "/expanding", "nextName": "Chatbot", "nextLink": "/chatbot"},
+    {"name": "Chatbot", "description": "", "link": "/chatbot", "nextName": "Conclusion", "nextLink": "/conclusion"},
+    {"name": "Conclusion", "description": "", "link": "/conclusion", "nextName": "", "nextLink": ""}
+  ]
+}
