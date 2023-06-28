@@ -5,20 +5,22 @@ const handler = async (
   req: NextApiRequest,
   res: NextApiResponse
 ) => {
-  const type = req.body.type || '';
+  const apiKey = req.body.apiKey || '';
   const prompt = req.body.prompt || '';
-  const content = req.body.content || '';
+  const userText = req.body.userText || '';
+  
   const timeout: number = 5000; // Vercel plan limit
 
   try {
-    if (type == '') throw new Error('No type');
-    if (content == '') throw new Error('No content');
+    if (apiKey == '') throw new Error('No apiKey');
+    if (prompt == '') throw new Error('No prompt');
+    if (userText == '') throw new Error('No user text');
 
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeout);
 
     const configuration = new Configuration({
-      apiKey: process.env.OPENAI_API_KEY
+      apiKey: apiKey
     });
     const openai = new OpenAIApi(configuration);
     const chatCompletion = await openai.createChatCompletion({
