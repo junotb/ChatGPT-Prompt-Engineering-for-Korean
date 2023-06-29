@@ -2,12 +2,13 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Navigator from '@/components/Navigator';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'ChatGPT Prompt Engineering for Developers',
-  description: 'ChatGPT Prompt Engineering for Developers',
+  title: 'ChatGPT Prompt Engineering for Developers in Korean',
+  description: 'ChatGPT Prompt Engineering for Developers in Korean',
 }
 
 type Chapter = {
@@ -25,7 +26,10 @@ const RootLayout = ({
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <main className="flex justify-center items-center h-[calc(100vh-var(--header-height)-var(--footer-height))]">{children}</main>
+        <main className="flex h-[calc(100vh-var(--header-height)-var(--footer-height))]">
+          <Navigator />
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

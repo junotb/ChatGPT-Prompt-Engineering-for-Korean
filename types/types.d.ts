@@ -1,13 +1,11 @@
 export type Chapter = {
   name: string,
-  description: string,
   link: string,
-  nextName: string,
-  nextLink: string
+  description: string,
 }
 
 export type Params = {
   apiKey: string,
   prompt: string,
-  userText: string
+  userText: string,
 }

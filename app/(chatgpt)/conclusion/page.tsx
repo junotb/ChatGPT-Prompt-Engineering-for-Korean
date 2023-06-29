@@ -4,29 +4,29 @@ import { completion } from "@/service/openai";
 import { useRef, useState } from "react";
 
 export default function Conclusion() {
-  const apiKeyRef = useRef(null);
-  const promptRef = useRef(null);
-  const userTextRef = useRef(null);
+  const apiKeyRef = useRef<HTMLInputElement>(null);
+  const promptRef = useRef<HTMLTextAreaElement>(null);
+  const userTextRef = useRef<HTMLTextAreaElement>(null);
   const resultRef = useRef(null);
   const [params, setParams] = useState({
     apiKey: '',
     prompt: '',
     userText: ''
   })
-  const blurHandler = () => {    
+  const blurHandler = () => {
     setParams({
-      apiKey: apiKeyRef.current || '',
-      prompt: promptRef.current || '',
-      userText: userTextRef.current || ''
+      apiKey: apiKeyRef.current!.value || '',
+      prompt: promptRef.current!.value || '',
+      userText: userTextRef.current!.value || ''
     });
   };
-  const clickHandler = () => {
+  const clickHandler = async () => {
     const { apiKey, prompt, userText } = params;
-    const result = completion(apiKey, prompt, userText);
+    const result = await completion(apiKey, prompt, userText);
     console.log(result);
   }
   return (
-    <div className="flex w-full h-full gap-4 p-16">
+    <div className="flex w-full h-full gap-4 p-16 max-w-screen-xl">
       <div className="flex flex-col w-full gap-4">
         <input
           ref={apiKeyRef}

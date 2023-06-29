@@ -1,0 +1,55 @@
+[{
+  "name": "Introduction",
+  "description": "ChatGPT Prompt Engineering for Developers에 오신 것을 환영합니다. Isa Fulford와 함께 이 강좌를 진행하게 되어 매우 기쁩니다. 이 강좌에서는 ChatGPT의 사용 방법과 지시 튜닝 LLM에 대한 최상의 실천 방법을 알려드립니다.",
+  "link": "/introduction",
+  "nextName": "Guidance",
+  "nextLink": "/guidance"
+}, {
+  "name": "Guidance",
+  "description": "이 비디오에서 Isa는 원하는 결과를 얻기 위해 도움이 되는 프롬프트 가이드라인 몇 가지를 제시할 것입니다. 특히, 프롬프트 엔지니어링을 효과적으로 하기 위한 두 가지 주요 원칙에 대해 설명할 것입니다. 그리고 Jupyter Notebook 예제를 다룰 때, 비디오를 일시 중지하고 코드를 실행하여 출력을 확인하고 정확한 프롬프트를 변경하고 몇 가지 다른 변형을 시도하여 프롬프트의 입력과 출력에 대한 경험을 쌓을 것을 권장합니다. 이 강좌에서는 ChatGPT와 같은 언어 모델과 함께 작업하는 동안 도움이 될 원칙과 전술을 개요로 설명하고, 이후 전체 강좌에서 이러한 전술을 계속 사용할 것입니다.",
+  "link": "/guidance",
+  "nextName": "Iterative",
+  "nextLink": "/iterative"
+}, {
+  "name": "Iterative",
+  "description": "",
+  "link": "/iterative",
+  "nextName": "Inferring",
+  "nextLink": "/inferring"
+}, {
+  "name": "Inferring",
+  "description": "",
+  "link": "/inferring",
+  "nextName": "Summarizing",
+  "nextLink": "/summarizing"
+}, {
+  "name": "Summarizing",
+  "description": "",
+  "link": "/summarizing",
+  "nextName": "Transforming",
+  "nextLink": "/transforming"
+}, {
+  "name": "Transforming",
+  "description": "",
+  "link": "/transforming",
+  "nextName": "Expanding",
+  "nextLink": "/expanding"
+}, {
+  "name": "Expanding",
+  "description": "",
+  "link": "/expanding",
+  "nextName": "Chatbot",
+  "nextLink": "/chatbot"
+}, {
+  "name": "Chatbot",
+  "description": "",
+  "link": "/chatbot",
+  "nextName": "Conclusion",
+  "nextLink": "/conclusion"
+}, {
+  "name": "Conclusion",
+  "description": "",
+  "link": "/conclusion",
+  "nextName": "",
+  "nextLink": ""
+}]
