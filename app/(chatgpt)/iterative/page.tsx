@@ -1,7 +1,9 @@
-export default function Iterative() {
+const Iterative = () => {
   return (
-    <div className="w-full h-full p-16 flex justify-center items-center">   
-      Hello Iterative
+    <div className="w-full h-full p-4 flex justify-center items-center">
+      <div className="w-full h-full overflow-y-scroll pr-2">Hello Iterative</div>
     </div>
   )
 }
+
+export default Iterative;

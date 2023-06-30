@@ -7,14 +7,12 @@ const handler = async (
 ) => {
   const apiKey = req.body.apiKey || '';
   const prompt = req.body.prompt || '';
-  const userText = req.body.userText || '';
   
   const timeout: number = 5000; // Vercel plan limit
 
   try {
     if (apiKey == '') throw new Error('No apiKey');
     if (prompt == '') throw new Error('No prompt');
-    if (userText == '') throw new Error('No user text');
 
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeout);

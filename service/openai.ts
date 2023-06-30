@@ -1,7 +1,6 @@
 export const completion = async (
   apiKey: string,
-  prompt: string,
-  userText: string
+  prompt: string
 ): Promise<string> => {
   const response = await fetch('/api/openai', {
     method: "POST",
@@ -11,8 +10,7 @@ export const completion = async (
     },
     body: JSON.stringify({
       apiKey: apiKey,
-      prompt: prompt,
-      userText: userText
+      prompt: prompt
     })
   });
   const data = await response.json();

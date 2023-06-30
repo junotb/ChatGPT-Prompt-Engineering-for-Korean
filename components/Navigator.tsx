@@ -2,8 +2,7 @@
 
 import { Chapter } from "@/types/types";
 import Link from "next/link";
-import { usePathname } from 'next/navigation'
-import { useEffect } from "react";
+import { usePathname } from 'next/navigation';
 
 const Navigator = () => {
   const pathname = usePathname();
@@ -27,7 +26,7 @@ const Navigator = () => {
           <Link
             key={index}
             href={chapter.link}
-            className={"flex justify-center items-center p-4" + ((chapter.link === pathname) ? ' border-2 border-white' : '')}
+            className={"flex justify-start items-center p-4 min-w-[12rem] w-48 min-h-[4rem] h-16" + ((chapter.link === pathname) ? ' bg-black text-white dark:bg-white dark:text-black font-bold' : '')}
           >{chapter.name}</Link>
         ))
       }

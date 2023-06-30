@@ -3,9 +3,3 @@ export type Chapter = {
   link: string,
   description: string,
 }
-
-export type Params = {
-  apiKey: string,
-  prompt: string,
-  userText: string,
-}

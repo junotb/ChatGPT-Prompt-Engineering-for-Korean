@@ -1,63 +1,9 @@
-"use client";
-
-import { completion } from "@/service/openai";
-import { useRef, useState } from "react";
-
-export default function Conclusion() {
-  const apiKeyRef = useRef<HTMLInputElement>(null);
-  const promptRef = useRef<HTMLTextAreaElement>(null);
-  const userTextRef = useRef<HTMLTextAreaElement>(null);
-  const resultRef = useRef(null);
-  const [params, setParams] = useState({
-    apiKey: '',
-    prompt: '',
-    userText: ''
-  })
-  const blurHandler = () => {
-    setParams({
-      apiKey: apiKeyRef.current!.value || '',
-      prompt: promptRef.current!.value || '',
-      userText: userTextRef.current!.value || ''
-    });
-  };
-  const clickHandler = async () => {
-    const { apiKey, prompt, userText } = params;
-    const result = await completion(apiKey, prompt, userText);
-    console.log(result);
-  }
+const Conclusion = () => {
   return (
-    <div className="flex w-full h-full gap-4 p-16 max-w-screen-xl">
-      <div className="flex flex-col w-full gap-4">
-        <input
-          ref={apiKeyRef}
-          onBlur={blurHandler}
-          placeholder={"Api Key 를 입력해주세요."}
-          className="w-full h-16 p-4 bg-transparent border-2 border-white rounded-lg"
-        />
-        <textarea
-          ref={promptRef}
-          onBlur={blurHandler}
-          placeholder={"프롬프트를 입력해주세요."}
-          className="w-full h-full p-4 bg-transparent border-2 border-white rounded-lg"
-        ></textarea>
-        <textarea
-          ref={userTextRef}
-          onBlur={blurHandler}
-          placeholder={"자유롭게 내용을 입력해주세요."}
-          className="w-full h-full p-4 bg-transparent border-2 border-white rounded-lg"
-        ></textarea>
-      </div>
-      <div className="flex flex-col w-full gap-4">
-        <textarea
-          ref={resultRef}
-          placeholder={"답변이 입력되는 곳입니다."}
-          className="w-full h-full p-4 bg-transparent border-2 border-white rounded-lg"
-        ></textarea>
-        <button
-          onClick={clickHandler}
-          className="w-full h-16 border-2 border-white rounded-lg"
-        >Send</button>
-      </div>
+    <div className="w-full h-full p-4 flex justify-center items-center">
+      <div className="w-full h-full overflow-y-scroll pr-2">Hello Conclusion</div>
     </div>
   )
 }
+
+export default Conclusion;
