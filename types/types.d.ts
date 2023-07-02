@@ -1,5 +1,6 @@
 export type Chapter = {
-  name: string,
+  english_name: string,
+  korean_name: string,
   link: string,
   description: string,
 }

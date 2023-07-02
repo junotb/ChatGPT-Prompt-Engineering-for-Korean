@@ -4,8 +4,8 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'ChatGPT Prompt Engineering for Developers in Korean',
-  description: 'ChatGPT Prompt Engineering for Developers in Korean',
+  title: 'ChatGPT Prompt Engineering for Developers in Unofficial Korean version',
+  description: 'ChatGPT Prompt Engineering for Developers in Unofficial Korean version',
 }
 
 const RootLayout = ({

@@ -7,15 +7,15 @@ import { usePathname } from 'next/navigation';
 const Navigator = () => {
   const pathname = usePathname();
   const chapters: Chapter[] = [
-    {"name": "Introduction", "description": "", "link": "/introduction"},
-    {"name": "Guidance", "description": "", "link": "/guidance"},
-    {"name": "Iterative", "description": "", "link": "/iterative"},
-    {"name": "Inferring", "description": "", "link": "/inferring"},
-    {"name": "Summarizing", "description": "", "link": "/summarizing"},
-    {"name": "Transforming", "description": "", "link": "/transforming"},
-    {"name": "Expanding", "description": "", "link": "/expanding"},
-    {"name": "Chatbot", "description": "", "link": "/chatbot"},
-    {"name": "Conclusion", "description": "", "link": "/conclusion"}
+    {"english_name": "Introduction", "korean_name": "소개", "description": "", "link": "/introduction"},
+    {"english_name": "Guidelines", "korean_name": "가이드라인", "description": "", "link": "/guidelines"},
+    {"english_name": "Iterative", "korean_name": "반복적인", "description": "", "link": "/iterative"},
+    {"english_name": "Summarizing", "korean_name": "요약", "description": "", "link": "/summarizing"},
+    {"english_name": "Inferring", "korean_name": "추론", "description": "", "link": "/inferring"},
+    {"english_name": "Transforming", "korean_name": "변형", "description": "", "link": "/transforming"},
+    {"english_name": "Expanding", "korean_name": "확장", "description": "", "link": "/expanding"},
+    {"english_name": "Chatbot", "korean_name": "챗봇", "description": "", "link": "/chatbot"},
+    {"english_name": "Conclusion", "korean_name": "결론", "description": "", "link": "/conclusion"}
   ];
 
   return (
@@ -26,8 +26,8 @@ const Navigator = () => {
           <Link
             key={index}
             href={chapter.link}
-            className={"flex justify-start items-center p-4 min-w-[12rem] w-48 min-h-[4rem] h-16" + ((chapter.link === pathname) ? ' bg-black text-white dark:bg-white dark:text-black font-bold' : '')}
-          >{chapter.name}</Link>
+            className={"flex justify-start items-center p-4 min-w-[12rem] w-60 min-h-[4rem] h-16" + ((chapter.link === pathname) ? ' bg-black text-white dark:bg-white dark:text-black font-bold' : '')}
+          >{chapter.english_name}({chapter.korean_name})</Link>
         ))
       }
     </div>

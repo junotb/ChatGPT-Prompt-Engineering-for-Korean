@@ -1,4 +1,4 @@
-const GuidanceLayout = ({
+const GuidelinesLayout = ({
   children,
 }: {
   children: React.ReactNode
@@ -8,4 +8,4 @@ const GuidanceLayout = ({
   )
 };
 
-export default GuidanceLayout;
+export default GuidelinesLayout;
