@@ -4,7 +4,11 @@ import { Chapter } from "@/types/types";
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
 
-const Navigator = () => {
+const Navigator = ({
+  open
+}: {
+  open: boolean
+}) => {
   const pathname = usePathname();
   const chapters: Chapter[] = [
     {"english_name": "Introduction", "korean_name": "소개", "description": "", "link": "/introduction"},
@@ -19,18 +23,32 @@ const Navigator = () => {
   ];
 
   return (
-    <div className="flex flex-col">
-      {
-        chapters &&
-        chapters.map((chapter, index) => (
-          <Link
-            key={index}
-            href={chapter.link}
-            className={"flex justify-start items-center p-4 min-w-[12rem] w-60 min-h-[4rem] h-16" + ((chapter.link === pathname) ? ' bg-black text-white dark:bg-white dark:text-black font-bold' : '')}
-          >{chapter.english_name}({chapter.korean_name})</Link>
-        ))
-      }
-    </div>
+    <>
+      <div className={`bg-[rgb(var(--background-rgb))] fixed top-[var(--header-height)] w-full h-[calc(100vh-var(--header-height)-var(--footer-height))] ${(open) ? '' : 'hidden'}`}>
+        {
+          chapters &&
+          chapters.map((chapter, index) => (
+            <Link
+              key={index}
+              href={chapter.link}
+              className={"flex justify-start items-center p-4 min-w-[12rem] min-h-[4rem] h-16" + ((chapter.link === pathname) ? ' bg-black text-white dark:bg-white dark:text-black font-bold' : '')}
+            >{chapter.english_name}({chapter.korean_name})</Link>
+          ))
+        }
+      </div>
+      <div className="hidden h-full w-60 sm:block">
+        {
+          chapters &&
+          chapters.map((chapter, index) => (
+            <Link
+              key={index}
+              href={chapter.link}
+              className={"flex justify-start items-center p-4 min-w-[12rem] min-h-[4rem] h-16" + ((chapter.link === pathname) ? ' bg-black text-white dark:bg-white dark:text-black font-bold' : '')}
+            >{chapter.english_name}({chapter.korean_name})</Link>
+          ))
+        }
+      </div>
+    </>
   )
 };
 
