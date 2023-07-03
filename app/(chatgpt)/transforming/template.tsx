@@ -6,10 +6,7 @@ const Template = ({
   children: React.ReactNode
 }) => {
   return (
-    <>
-      <Openai />
-      <div className="w-full h-full">{children}</div>
-    </>
+    <>{children}</>
   )
 };
 
