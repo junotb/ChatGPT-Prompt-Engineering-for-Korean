@@ -54,7 +54,7 @@ const Template = ({
     if (mobileMode) {
       setNavigatorUI(false);
     }
-  }, [location]);
+  }, [pathname]);
 
   return (
     <>
