@@ -32,7 +32,7 @@ const Navigator = ({
           <Link
             key={index}
             href={chapter.link}
-            className={`flex justify-start items-center p-4 w-full min-h-[4rem] h-16 ${(chapter.link === pathname) ? ' bg-black text-white dark:bg-white dark:text-black font-bold' : ''}`}
+            className={`flex justify-start items-center p-2 md:p-4 w-full min-h-[4rem] h-12 md:h-16 ${(chapter.link === pathname) ? ' bg-black text-white dark:bg-white dark:text-black font-bold' : ''}`}
           >{chapter.english_name}({chapter.korean_name})</Link>
         ))
       }

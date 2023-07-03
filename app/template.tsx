@@ -72,7 +72,7 @@ const Template = ({
         }
         {
           dialogUI &&
-          <div className="w-full h-full p-4 overflow-y-scroll">{children}</div>
+          <div className="w-full h-full p-4 overflow-y-scroll text-sm md:text-base">{children}</div>
         }
         {
           mobileMode &&
