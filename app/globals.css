@@ -15,10 +15,14 @@
   }
 }
 
-body {
-  height: 100vh;
+html {
   height: -webkit-fill-available;
-  height: fill-available;
+}
+
+body {
+  min-height: 100vh;
+  /* mobile viewport bug fix */
+  min-height: -webkit-fill-available;
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
 }
