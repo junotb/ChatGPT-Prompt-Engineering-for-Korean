@@ -5,9 +5,9 @@ import Link from "next/link";
 import { usePathname } from 'next/navigation';
 
 const Navigator = ({
-  open
+  navigatorUI
 }: {
-  open: boolean
+  navigatorUI: boolean
 }) => {
   const pathname = usePathname();
   const chapters: Chapter[] = [
@@ -23,32 +23,19 @@ const Navigator = ({
   ];
 
   return (
-    <>
-      <div className={`bg-[rgb(var(--background-rgb))] fixed top-[var(--header-height)] w-full h-[calc(100vh-var(--header-height)-var(--footer-height))] ${(open) ? '' : 'hidden'}`}>
-        {
-          chapters &&
-          chapters.map((chapter, index) => (
-            <Link
-              key={index}
-              href={chapter.link}
-              className={"flex justify-start items-center p-4 min-w-[12rem] min-h-[4rem] h-16" + ((chapter.link === pathname) ? ' bg-black text-white dark:bg-white dark:text-black font-bold' : '')}
-            >{chapter.english_name}({chapter.korean_name})</Link>
-          ))
-        }
-      </div>
-      <div className="hidden h-full w-60 sm:block">
-        {
-          chapters &&
-          chapters.map((chapter, index) => (
-            <Link
-              key={index}
-              href={chapter.link}
-              className={"flex justify-start items-center p-4 min-w-[12rem] min-h-[4rem] h-16" + ((chapter.link === pathname) ? ' bg-black text-white dark:bg-white dark:text-black font-bold' : '')}
-            >{chapter.english_name}({chapter.korean_name})</Link>
-          ))
-        }
-      </div>
-    </>
+    navigatorUI &&
+    <div className="absolute sm:static sm:float-left bg-[rgb(var(--background-rgb))] min-h-[var(--main-height)] h-[var(--main-height)] w-full sm:w-72">
+      {
+        chapters &&
+        chapters.map((chapter, index) => (
+          <Link
+            key={index}
+            href={chapter.link}
+            className={`flex justify-start items-center p-4 w-full min-h-[4rem] h-16 ${(chapter.link === pathname) ? ' bg-black text-white dark:bg-white dark:text-black font-bold' : ''}`}
+          >{chapter.english_name}({chapter.korean_name})</Link>
+        ))
+      }
+    </div>
   )
 };
 

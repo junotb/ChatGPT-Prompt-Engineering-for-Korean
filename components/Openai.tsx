@@ -3,7 +3,11 @@
 import { useRef, useState } from "react";
 import { completion } from "@/service/openai";
 
-const Openai = () => {
+const Openai = ({
+  openaiUI
+}: {
+  openaiUI: boolean
+}) => {
   const [loading, setLoading] = useState(false);
   const apiKeyRef = useRef<HTMLInputElement>(null);
   const promptRef = useRef<HTMLTextAreaElement>(null);
@@ -23,7 +27,8 @@ const Openai = () => {
   }
 
   return (
-    <div className="flex flex-col h-full min-w-[28rem] w-[28rem] p-4 gap-4">
+    openaiUI &&
+    <div className="float-left flex flex-col h-[var(--main-height)] w-full sm:w-[30rem] p-4 gap-4">
       <input
         ref={apiKeyRef}
         className={`w-full min-h-[4rem] h-16 p-4 border-2 border-black dark:border-white rounded-lg bg-transparent ${(loading) ? ' bg-neutral-500' : ''}`}
