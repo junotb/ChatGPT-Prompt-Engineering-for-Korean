@@ -11,20 +11,21 @@ const Navigator = ({
 }) => {
   const pathname = usePathname();
   const chapters: Chapter[] = [
-    {"english_name": "Introduction", "korean_name": "소개", "description": "", "link": "/introduction"},
-    {"english_name": "Guidelines", "korean_name": "가이드라인", "description": "", "link": "/guidelines"},
-    {"english_name": "Iterative", "korean_name": "반복적인", "description": "", "link": "/iterative"},
-    {"english_name": "Summarizing", "korean_name": "요약", "description": "", "link": "/summarizing"},
-    {"english_name": "Inferring", "korean_name": "추론", "description": "", "link": "/inferring"},
-    {"english_name": "Transforming", "korean_name": "변형", "description": "", "link": "/transforming"},
-    {"english_name": "Expanding", "korean_name": "확장", "description": "", "link": "/expanding"},
-    {"english_name": "Chatbot", "korean_name": "챗봇", "description": "", "link": "/chatbot"},
-    {"english_name": "Conclusion", "korean_name": "결론", "description": "", "link": "/conclusion"}
+    {"english_name": "Home", "korean_name": "홈", "link": "/"},
+    {"english_name": "Introduction", "korean_name": "소개", "link": "/introduction"},
+    {"english_name": "Guidelines", "korean_name": "가이드라인", "link": "/guidelines"},
+    {"english_name": "Iterative", "korean_name": "반복적인", "link": "/iterative"},
+    {"english_name": "Summarizing", "korean_name": "요약", "link": "/summarizing"},
+    {"english_name": "Inferring", "korean_name": "추론", "link": "/inferring"},
+    {"english_name": "Transforming", "korean_name": "변형", "link": "/transforming"},
+    {"english_name": "Expanding", "korean_name": "확장", "link": "/expanding"},
+    {"english_name": "Chatbot", "korean_name": "챗봇", "link": "/chatbot"},
+    {"english_name": "Conclusion", "korean_name": "결론", "link": "/conclusion"}
   ];
 
   return (
     navigatorUI &&
-    <div className="absolute sm:static sm:float-left bg-[rgb(var(--background-rgb))] min-h-[var(--main-height)] h-[var(--main-height)] w-full sm:w-72">
+    <div className="absolute md:static md:float-left bg-[rgb(var(--background-rgb))] w-full h-[var(--main-height)] md:w-60">
       {
         chapters &&
         chapters.map((chapter, index) => (

@@ -1,6 +1,6 @@
 "use client";
 
-import Footer from "@/components/Footer"
+import Footer from "@/components/Footer";
 import Header from "@/components/Header"
 import Navigator from '@/components/Navigator';
 import Openai from "@/components/Openai";
@@ -43,12 +43,18 @@ const Template = ({
         setDialogUI(true);
       }
     }
-    const mediaQuery = window.matchMedia("(max-width: 640px)");
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
     mediaQuery.onchange = (e) => {
       initModeUI(e.matches);
     };
     initModeUI(mediaQuery.matches);
   }, []);
+
+  useEffect(() => {
+    if (mobileMode) {
+      setNavigatorUI(false);
+    }
+  }, [location]);
 
   return (
     <>
@@ -56,25 +62,27 @@ const Template = ({
       <Navigator
         navigatorUI={navigatorUI}
       />
-      {
-        (pathname === '/') ? '' : (
-          <Openai
-            openaiUI={openaiUI}
+      <main className={`flex h-[var(--main-height)] ${(mobileMode) ? 'flex-col' : ''}`}>
+        {
+          (pathname === '/') ? '' : (
+            <Openai
+              openaiUI={openaiUI}
+            />
+          )
+        }
+        {
+          dialogUI &&
+          <div className="w-full h-full p-4 overflow-y-scroll">{children}</div>
+        }
+        {
+          mobileMode &&
+          <Footer
+            handleNavigatorUI={handleNavigatorUI}
+            handleOpenaiUI={handleOpenaiUI}
+            handleDialogUI={handleDialogUI}
           />
-        )
-      }
-      {
-        dialogUI &&
-        <main className="flex p-4 h-[var(--main-height)]">
-          <div className="w-full h-full pr-2 overflow-y-scroll">{children}</div>
-        </main>
-      }
-      <Footer
-        mobileMode={mobileMode}
-        handleNavigatorUI={handleNavigatorUI}
-        handleOpenaiUI={handleOpenaiUI}
-        handleDialogUI={handleDialogUI}
-      />
+        }
+      </main>
     </>
   )
 };
