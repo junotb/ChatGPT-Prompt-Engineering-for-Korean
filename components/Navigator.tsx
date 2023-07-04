@@ -20,14 +20,14 @@ const Navigator = () => {
   ];
 
   return (
-    <div className="absolute md:static bg-[rgb(var(--background-rgb))] w-full h-full md:w-fit min-w-fit">
+    <div className="absolute landscape:static bg-[rgb(var(--background-rgb))] w-full h-full landscape:w-fit min-w-fit">
       {
         chapters &&
         chapters.map((chapter, index) => (
           <Link
             key={index}
             href={chapter.link}
-            className={`flex justify-start items-center p-2 md:p-4 w-full h-12 md:h-16 ${(chapter.link === pathname) ? ' bg-black text-white dark:bg-white dark:text-black font-bold' : ''}`}
+            className={`flex justify-start items-center p-2 landscape:p-4 w-full h-12 landscape:h-16 ${(chapter.link === pathname) ? ' bg-black text-white dark:bg-white dark:text-black font-bold' : ''}`}
           >{chapter.english_name}({chapter.korean_name})</Link>
         ))
       }

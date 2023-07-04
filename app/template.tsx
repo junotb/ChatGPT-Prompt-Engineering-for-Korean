@@ -49,7 +49,7 @@ const Template = ({
         setDialogUI(true);
       }
     };
-    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    const mediaQuery = window.matchMedia("(orientation: landscape)");
     mediaQuery.onchange = (e) => {
       initModeUI(e.matches);
     };
@@ -70,7 +70,7 @@ const Template = ({
   return (
     <div className="flex flex-col w-full h-full">
       <Header />
-      <main className="flex flex-col min-h-0 h-full md:flex-row overflw-y-auto">
+      <main className="flex flex-col min-h-0 h-full landscape:flex-row overflw-y-auto">
         {
           navigatorUI &&
           <Navigator/>
