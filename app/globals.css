@@ -35,6 +35,11 @@ body {
     font-size: 1rem; /* 16px */
     line-height: 1.5rem; /* 24px */
   }
+  
+  /* mobile viewport bug fix */
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    min-height: -webkit-fill-available;
+  }
 }
 
 textarea {
