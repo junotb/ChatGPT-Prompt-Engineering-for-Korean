@@ -2,22 +2,36 @@
 
 import { useRef, useState } from "react";
 import { completion } from "@/service/openai";
+import { Message } from "@/types/types";
 
 const Openai = () => {
   const [loading, setLoading] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([]);
   const apiKeyRef = useRef<HTMLInputElement>(null);
-  const promptRef = useRef<HTMLTextAreaElement>(null);
+  const userPromptRef = useRef<HTMLTextAreaElement>(null);
   const contentRef = useRef<HTMLTextAreaElement>(null);
 
   const clickHandler = async () => {
     setLoading(true);
-    
-    const { apiKey, prompt } = {
-      apiKey: apiKeyRef.current!.value || '',
-      prompt: promptRef.current!.value || ''
-    };
-    const content = await completion(apiKey, prompt).then(content => (typeof(content) === 'undefined') ? '' : content);
+
+    const apiKey = apiKeyRef.current!.value;
+    const userMessage: Message = {
+      "role": "user",
+      "content": userPromptRef.current!.value || ''
+    }
+    messages.push(userMessage);
+
+    const content = await completion(apiKey, messages).then(content => (typeof(content) === 'undefined') ? '' : content);
     contentRef.current!.value = content;
+
+    const assistantMessage: Message = {
+      "role": "assistant",
+      "content": content
+    }
+    messages.push(assistantMessage);
+
+    setMessages(messages);
+    console.log(messages);
 
     setLoading(false);
   }
@@ -26,19 +40,19 @@ const Openai = () => {
     <div className="flex flex-col w-full landscape:min-w-[24rem] landscape:max-w-[30rem] h-full p-2 landscape:p-4 gap-4">
       <input
         ref={apiKeyRef}
-        className={`w-full h-16 p-2 landscape:p-4 border-2 border-black dark:border-white rounded-md bg-transparent ${(loading) ? ' bg-neutral-500' : ''}`}
+        className={`w-full h-16 p-2 landscape:p-4 border-2 border-black dark:border-white rounded-md ${(loading) ? ' bg-neutral-500' : 'bg-transparent'}`}
         placeholder="Api Key를 입력해주세요"
         readOnly={(loading) ? true : false}
       />
       <textarea
-        ref={promptRef}
-        className={`grow w-full h-full p-2 landscape:p-4 overflow-y-auto bg-transparent border-2 border-black rounded-md dark:border-white ${(loading) ? ' bg-neutral-500' : ''}`}
+        ref={userPromptRef}
+        className={`grow w-full h-full p-2 landscape:p-4 overflow-y-auto border-2 border-black rounded-md dark:border-white ${(loading) ? ' bg-neutral-500' : 'bg-transparent'}`}
         placeholder="프롬프트를 입력해주세요"
         readOnly={(loading) ? true : false}
       ></textarea>
       <textarea
         ref={contentRef}
-        className={`grow w-full h-full p-2 landscape:p-4 overflow-y-auto bg-transparent border-2 border-black rounded-md dark:border-white ${(loading) ? ' bg-neutral-500' : ''}`}
+        className={`grow w-full h-full p-2 landscape:p-4 overflow-y-auto border-2 border-black rounded-md dark:border-white ${(loading) ? ' bg-neutral-500' : 'bg-transparent'}`}
         placeholder="Chat Gpt 답변이 등록되는 곳입니다"
         readOnly
       ></textarea>

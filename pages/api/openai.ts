@@ -6,13 +6,13 @@ const handler = async (
   res: NextApiResponse
 ) => {
   const apiKey = req.body.apiKey || '';
-  const prompt = req.body.prompt || '';
+  const messages = req.body.messages || '';
   
   const timeout: number = 5000; // Vercel plan limit
 
   try {
     if (apiKey == '') throw new Error('No apiKey');
-    if (prompt == '') throw new Error('No prompt');
+    if (messages == '') throw new Error('No messages');
 
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeout);
@@ -23,13 +23,10 @@ const handler = async (
     const openai = new OpenAIApi(configuration);
     const chatCompletion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
-      messages: [{
-        "role": "user",
-        "content": prompt
-      }],
+      messages: messages,
       temperature: 0 // this is the degree of randomness of the model's output
     })
-    .then(response => response.data)
+    .then(response => response.data);
 
     clearTimeout(timer);
 

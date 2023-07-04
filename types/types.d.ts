@@ -3,3 +3,8 @@ export type Chapter = {
   korean_name: string,
   link: string,
 }
+
+export type Message = {
+  role: string,
+  content: string
+}
