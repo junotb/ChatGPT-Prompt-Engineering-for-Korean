@@ -15,12 +15,16 @@
 }
 
 html {
+  margin: 0;
+  padding: 0;
   height: -webkit-fill-available;
 }
 
 body {
   box-sizing: content-box;
-  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
   font-size: 0.875rem; /* 14px */
@@ -33,7 +37,7 @@ body {
   
   /* mobile viewport bug fix */
   @supports (-webkit-appearance: none) and (stroke-color: transparent) {
-    min-height: -webkit-fill-available;
+    height: -webkit-fill-available;
   }
 }
 

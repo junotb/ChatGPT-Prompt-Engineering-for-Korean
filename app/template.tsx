@@ -30,7 +30,7 @@ const Template = ({
   };
 
   useEffect(() => {
-    const initModeUI = (matches: Boolean) => {
+    const initModeUI = (matches: boolean) => {
       if (matches) {
         setMobileMode(false);
         setNavigatorUI(true);
@@ -57,18 +57,17 @@ const Template = ({
   }, [pathname]);
 
   return (
-    <>
+    <div className="flex flex-col w-full h-full">
       <Header />
-      <main className="flex flex-col md:flex-row h-[calc(100vh-8rem)] md:h-[calc(100vh-4rem)]">
+      <main className="flex flex-col min-h-0 h-full md:flex-row overflw-y-auto">
         {
           navigatorUI &&
           <Navigator/>
         }
         {
-          (pathname === '/') ? '' : (
-            <Openai
-              openaiUI={openaiUI}
-            />
+          (pathname === '/') ? '' : (            
+            openaiUI &&
+            <Openai />
           )
         }
         {
@@ -87,7 +86,7 @@ const Template = ({
           handleDialogUI={handleDialogUI}
         />
       }
-    </>
+    </div>
   )
 };
 
