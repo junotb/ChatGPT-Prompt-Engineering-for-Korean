@@ -14,9 +14,9 @@ const Template = ({
 }) => {
   const pathname = usePathname();
   const [mobileMode, setMobileMode] = useState(false);
-  const [navigatorUI, setNavigatorUI] = useState(true);
-  const [openaiUI, setOpenaiUI] = useState(true);
-  const [dialogUI, setDialogUI] = useState(true);
+  const [navigatorUI, setNavigatorUI] = useState(false);
+  const [openaiUI, setOpenaiUI] = useState(false);
+  const [dialogUI, setDialogUI] = useState(false);
   const handleNavigatorUI = () => {
     setNavigatorUI(!navigatorUI);
   };
