@@ -4,11 +4,7 @@ import { Chapter } from "@/types/types";
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
 
-const Navigator = ({
-  navigatorUI
-}: {
-  navigatorUI: boolean
-}) => {
+const Navigator = () => {
   const pathname = usePathname();
   const chapters: Chapter[] = [
     {"english_name": "Home", "korean_name": "홈", "link": "/"},
@@ -24,8 +20,7 @@ const Navigator = ({
   ];
 
   return (
-    navigatorUI &&
-    <div className="absolute md:static md:float-left bg-[rgb(var(--background-rgb))] w-full h-[var(--main-height)] md:w-60">
+    <div className="absolute md:static bg-[rgb(var(--background-rgb))] w-full md:w-fit min-w-fit h-[calc(100vh-8rem)]">
       {
         chapters &&
         chapters.map((chapter, index) => (

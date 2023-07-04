@@ -32,18 +32,18 @@ const Template = ({
   useEffect(() => {
     const initModeUI = (matches: Boolean) => {
       if (matches) {
-        setMobileMode(true);
-        setNavigatorUI(false);
-        setOpenaiUI(false);
-        setDialogUI(true);
-      } else {
         setMobileMode(false);
         setNavigatorUI(true);
         setOpenaiUI(true);
         setDialogUI(true);
+      } else {
+        setMobileMode(true);
+        setNavigatorUI(false);
+        setOpenaiUI(false);
+        setDialogUI(true);
       }
-    }
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    };
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
     mediaQuery.onchange = (e) => {
       initModeUI(e.matches);
     };
@@ -59,10 +59,11 @@ const Template = ({
   return (
     <>
       <Header />
-      <Navigator
-        navigatorUI={navigatorUI}
-      />
-      <main className={`flex h-[var(--main-height)] ${(mobileMode) ? 'flex-col' : ''}`}>
+      <main className="flex flex-col md:flex-row h-[calc(100vh-8rem)] md:h-[calc(100vh-4rem)]">
+        {
+          navigatorUI &&
+          <Navigator/>
+        }
         {
           (pathname === '/') ? '' : (
             <Openai
@@ -72,17 +73,20 @@ const Template = ({
         }
         {
           dialogUI &&
-          <div className="w-full h-full p-4 overflow-y-scroll text-sm md:text-base">{children}</div>
-        }
-        {
-          mobileMode &&
-          <Footer
-            handleNavigatorUI={handleNavigatorUI}
-            handleOpenaiUI={handleOpenaiUI}
-            handleDialogUI={handleDialogUI}
-          />
+          <div className="w-full h-full p-4 overflow-y-auto">{children}</div>
         }
       </main>
+      {
+        mobileMode &&
+        <Footer
+          navigatorUI={navigatorUI}
+          handleNavigatorUI={handleNavigatorUI}
+          openaiUI={openaiUI}
+          handleOpenaiUI={handleOpenaiUI}
+          dialogUI={dialogUI}
+          handleDialogUI={handleDialogUI}
+        />
+      }
     </>
   )
 };

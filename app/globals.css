@@ -5,7 +5,6 @@
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
-  --main-height: calc(100vh - 4rem);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,9 +19,43 @@ html {
 }
 
 body {
+  box-sizing: content-box;
   min-height: 100vh;
   /* mobile viewport bug fix */
   min-height: -webkit-fill-available;
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+  
+  @media (min-width: 768px) {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(var(--background-rgb));
+  border-radius: 0.25rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--foreground-rgb));
+  border-radius: 0.25rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #737373;
 }

@@ -28,28 +28,28 @@ const Openai = ({
 
   return (
     openaiUI &&
-    <div className="float-left flex flex-col h-[var(--main-height)] w-full md:min-w-[24rem] md:w-96 p-4 gap-4">
+    <div className="float-left flex flex-col w-full h-full md:min-w-[24rem] md:w-96 p-2 md:p-4 gap-4">
       <input
         ref={apiKeyRef}
-        className={`w-full min-h-[4rem] h-16 p-4 border-2 border-black dark:border-white rounded-lg bg-transparent ${(loading) ? ' bg-neutral-500' : ''}`}
+        className={`w-full h-16 p-2 md:p-4 border-2 border-black dark:border-white rounded-md bg-transparent ${(loading) ? ' bg-neutral-500' : ''}`}
         placeholder="Api Key를 입력해주세요"
         readOnly={(loading) ? true : false}
       />
       <textarea
         ref={promptRef}
-        className={`w-full h-full p-4 overflow-y-scroll bg-transparent border-2 border-black rounded-lg dark:border-white ${(loading) ? ' bg-neutral-500' : ''}`}
+        className={`w-full h-full p-2 md:p-4 overflow-y-auto bg-transparent border-2 border-black rounded-md dark:border-white ${(loading) ? ' bg-neutral-500' : ''}`}
         placeholder="프롬프트를 입력해주세요"
         readOnly={(loading) ? true : false}
       ></textarea>
       <textarea
         ref={contentRef}
-        className={`w-full h-full p-4 overflow-y-scroll bg-transparent border-2 border-black rounded-lg dark:border-white ${(loading) ? ' bg-neutral-500' : ''}`}
+        className={`w-full h-full p-2 md:p-4 overflow-y-auto bg-transparent border-2 border-black rounded-md dark:border-white ${(loading) ? ' bg-neutral-500' : ''}`}
         placeholder="Chat Gpt 답변이 등록되는 곳입니다"
         readOnly
       ></textarea>
       <button
         onClick={clickHandler}
-        className='flex items-center justify-center w-full min-h-[4rem] h-16 border-2 border-black dark:border-white rounded-lg'
+        className='flex items-center justify-center w-full h-16 p-2 md:p-4 border-2 border-black dark:border-white rounded-md'
       >보내기</button>
     </div>
   )
