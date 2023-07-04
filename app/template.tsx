@@ -21,12 +21,18 @@ const Template = ({
     setNavigatorUI(!navigatorUI);
   };
   const handleOpenaiUI = () => {
+    setNavigatorUI(false);
     setOpenaiUI(true);
     setDialogUI(false);
   };
   const handleDialogUI = () => {
+    setNavigatorUI(false);
     setOpenaiUI(false);
     setDialogUI(true);
+  };
+  const handleResize = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`); 
   };
 
   useEffect(() => {
@@ -48,6 +54,11 @@ const Template = ({
       initModeUI(e.matches);
     };
     initModeUI(mediaQuery.matches);
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+  
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {

@@ -25,6 +25,7 @@ body {
   padding: 0;
   height: 100vh;
   min-height: 100vh;
+  min-height: calc(var(--vh) * 100);
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
   font-size: 0.875rem; /* 14px */
@@ -33,11 +34,6 @@ body {
   @media (min-width: 768px) {
     font-size: 1rem; /* 16px */
     line-height: 1.5rem; /* 24px */
-  }
-  
-  /* mobile viewport bug fix */
-  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
-    min-height: -webkit-fill-available;
   }
 }
 

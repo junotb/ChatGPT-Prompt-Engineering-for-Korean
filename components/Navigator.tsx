@@ -20,7 +20,7 @@ const Navigator = () => {
   ];
 
   return (
-    <div className="absolute md:static bg-[rgb(var(--background-rgb))] w-full md:w-fit min-w-fit">
+    <div className="absolute md:static bg-[rgb(var(--background-rgb))] w-full h-full md:w-fit min-w-fit">
       {
         chapters &&
         chapters.map((chapter, index) => (
