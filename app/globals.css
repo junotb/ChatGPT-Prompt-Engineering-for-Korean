@@ -15,18 +15,18 @@
 }
 
 html {
-  margin: 0;
-  padding: 0;
-}
-
-body {
   box-sizing: content-box;
   margin: 0;
   padding: 0;
-  height: 100vh;
-  height: var(--vh);
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  height: var(--vh);]
   font-size: 0.875rem; /* 14px */
   line-height: 1.25rem; /* 20px */
   

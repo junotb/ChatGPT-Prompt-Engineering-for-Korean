@@ -60,7 +60,7 @@ const Openai = () => {
         (pathname === '/chatbot') ? (
           <textarea
             ref={systemPromptRef}
-            className={`grow w-full h-full p-2 landscape:p-4 overflow-y-auto border-2 border-black rounded-md dark:border-white ${(loading) ? ' bg-neutral-500' : 'bg-transparent'}`}
+            className={`w-full h-full p-2 landscape:p-4 overflow-y-auto border-2 border-black rounded-md dark:border-white ${(loading) ? ' bg-neutral-500' : 'bg-transparent'}`}
             placeholder="시스템 프롬프트를 입력해주세요"
             readOnly={(loading) ? true : false}
           ></textarea>
@@ -68,19 +68,19 @@ const Openai = () => {
       }
       <textarea
         ref={userPromptRef}
-        className={`grow w-full h-full p-2 landscape:p-4 overflow-y-auto border-2 border-black rounded-md dark:border-white ${(loading) ? ' bg-neutral-500' : 'bg-transparent'}`}
+        className={`w-full h-full p-2 landscape:p-4 overflow-y-auto border-2 border-black rounded-md dark:border-white ${(loading) ? ' bg-neutral-500' : 'bg-transparent'}`}
         placeholder="프롬프트를 입력해주세요"
         readOnly={(loading) ? true : false}
       ></textarea>
       <textarea
         ref={contentRef}
-        className={`grow w-full h-full p-2 landscape:p-4 overflow-y-auto border-2 border-black rounded-md dark:border-white ${(loading) ? ' bg-neutral-500' : 'bg-transparent'}`}
+        className={`w-full h-full p-2 landscape:p-4 overflow-y-auto border-2 border-black rounded-md dark:border-white ${(loading) ? ' bg-neutral-500' : 'bg-transparent'}`}
         placeholder="Chat Gpt 답변이 등록되는 곳입니다"
         readOnly
       ></textarea>
       <button
         onClick={clickHandler}
-        className='flex items-center justify-center w-full h-16 p-2 landscape:p-4 border-2 border-black dark:border-white rounded-md'
+        className='flex items-center justify-center w-full h-16 p-2 border-2 border-black rounded-md landscape:p-4 dark:border-white'
         disabled={(loading) ? true : false}
       >보내기</button>
     </div>
