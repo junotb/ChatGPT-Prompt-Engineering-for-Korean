@@ -8,7 +8,7 @@ export default function Home() {
         <Link
           href="https://learn.deeplearning.ai/chatgpt-prompt-eng/"
           target="_blank"
-          className="border-2 border-black dark:border-white w-full p-4 landscape:w-72 rounded-md hover:border-neutral-500 hover:text-neutral-500"
+          className="border-2 border-black dark:border-white w-full p-4 landscape:w-72 rounded-md hover:border-neutral-500 hover:text-neutral-500 active:border-neutral-500 active:text-neutral-500"
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="float-left w-6 h-6 pr-2">
             <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
@@ -26,7 +26,7 @@ export default function Home() {
         <Link
           href="https://openai.com/"
           target="_blank"
-          className="border-2 border-black dark:border-white w-full p-4 landscape:w-72 rounded-md hover:border-neutral-500 hover:text-neutral-500"
+          className="border-2 border-black dark:border-white w-full p-4 landscape:w-72 rounded-md hover:border-neutral-500 hover:text-neutral-500 active:border-neutral-500 active:text-neutral-500"
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="float-left w-6 h-6 pr-2">
             <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
@@ -37,7 +37,7 @@ export default function Home() {
         <Link
           href="https://platform.openai.com/"
           target="_blank"
-          className="border-2 border-black dark:border-white w-full p-4 landscape:w-72 rounded-md hover:border-neutral-500 hover:text-neutral-500"
+          className="border-2 border-black dark:border-white w-full p-4 landscape:w-72 rounded-md hover:border-neutral-500 hover:text-neutral-500 active:border-neutral-500 active:text-neutral-500"
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="float-left w-6 h-6 pr-2">
             <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />

@@ -96,6 +96,6 @@ textarea {
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active {
   background: #737373;
 }
