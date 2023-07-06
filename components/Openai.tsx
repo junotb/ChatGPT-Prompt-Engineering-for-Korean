@@ -18,11 +18,15 @@ const Openai = () => {
     const apiKey = apiKeyRef.current!.value;
 
     if (systemPromptRef.current) {
-      const systemMessage: Message = {
-        "role": "system",
-        "content": systemPromptRef.current!.value || ''
+      if(typeof(messages.find(message => message.role === 'system')) === 'undefined') {
+        const systemMessage: Message = {
+          "role": "system",
+          "content": systemPromptRef.current!.value || ''
+        };
+        messages.push(systemMessage);        
+      } else {
+        messages.find(message => message.role === 'system')!.content = systemPromptRef.current!.value || '';
       }
-      messages.push(systemMessage);
     }
     if (userPromptRef.current) {
       const userMessage: Message = {
@@ -42,6 +46,7 @@ const Openai = () => {
     messages.push(assistantMessage);
 
     setMessages(messages);
+    console.log(messages);
 
     setLoading(false);
   }
