@@ -12,42 +12,61 @@ const Openai = () => {
   const userPromptRef = useRef<HTMLTextAreaElement>(null);
   const contentRef = useRef<HTMLTextAreaElement>(null);
 
+  // Message 타입 구성
+  const getMessage = (role: string, content: string): Message => {
+    return {
+      "role": role,
+      "content": content
+    };
+  };
+
+  // OpenAI 서비스 호출
+  const callOpenAI = async (apiKey: string, messages: Message[]): Promise<string> => {
+    try {
+      const content = await completion(apiKey, messages).then(content => (typeof(content) === 'undefined') ? '' : content);
+      return content;      
+    } catch (error) {
+      console.log(error);
+      return '';
+    }
+  };
+
   const clickHandler = async () => {
+    // 로딩 상태 시작
     setLoading(true);
 
-    const apiKey = apiKeyRef.current!.value;
+    // apiKey 획득
+    const apiKey = apiKeyRef.current!.value || '';
+    if (apiKey === '') {
+      apiKeyRef.current!.focus();
+    }
 
     if (systemPromptRef.current) {
-      if(typeof(messages.find(message => message.role === 'system')) === 'undefined') {
-        const systemMessage: Message = {
-          "role": "system",
-          "content": systemPromptRef.current!.value || ''
-        };
+      if (typeof(messages.find(message => message.role === 'system')) === 'undefined') {
+        const systemMessage: Message = getMessage("system", systemPromptRef.current!.value || '');
         messages.push(systemMessage);        
       } else {
         messages.find(message => message.role === 'system')!.content = systemPromptRef.current!.value || '';
       }
     }
     if (userPromptRef.current) {
-      const userMessage: Message = {
-        "role": "user",
-        "content": userPromptRef.current!.value || ''
-      }
+      const userMessage: Message = getMessage("user", userPromptRef.current!.value || '');
       messages.push(userMessage);
     }
 
-    const content = await completion(apiKey, messages).then(content => (typeof(content) === 'undefined') ? '' : content);
-    contentRef.current!.value = content;
+    const content = await callOpenAI(apiKey, messages);
+    contentRef.current!.value = content || '';
 
-    const assistantMessage: Message = {
-      "role": "assistant",
-      "content": content
-    }
+    const assistantMessage: Message = getMessage("assistant", content);
     messages.push(assistantMessage);
 
-    setMessages(messages);
-    console.log(messages);
+    if (messages.length > 10) {
+      const popedMessages = messages.splice(1, 2);
+    }
 
+    setMessages(messages);
+
+    // 로딩 상태 종료
     setLoading(false);
   }
 
