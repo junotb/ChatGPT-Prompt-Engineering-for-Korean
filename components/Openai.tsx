@@ -3,10 +3,8 @@
 import { useRef, useState } from "react";
 import { completion } from "@/service/openai";
 import { Message } from "@/types/types";
-import { usePathname } from "next/navigation";
 
 const Openai = () => {
-  const pathname = usePathname();
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const apiKeyRef = useRef<HTMLInputElement>(null);
@@ -56,16 +54,12 @@ const Openai = () => {
         placeholder="Api Key를 입력해주세요"
         readOnly={(loading) ? true : false}
       />
-      {
-        (pathname === '/chatbot') ? (
-          <textarea
-            ref={systemPromptRef}
-            className={`grow w-full h-full p-2 landscape:p-4 overflow-y-auto border-2 border-black rounded-md dark:border-white ${(loading) ? ' bg-neutral-500' : 'bg-transparent'}`}
-            placeholder="시스템 프롬프트를 입력해주세요"
-            readOnly={(loading) ? true : false}
-          ></textarea>
-        ) : ''
-      }
+      <textarea
+        ref={systemPromptRef}
+        className={`grow w-full h-full p-2 landscape:p-4 overflow-y-auto border-2 border-black rounded-md dark:border-white ${(loading) ? ' bg-neutral-500' : 'bg-transparent'}`}
+        placeholder="시스템 프롬프트를 입력해주세요"
+        readOnly={(loading) ? true : false}
+      ></textarea>
       <textarea
         ref={userPromptRef}
         className={`grow w-full h-full p-2 landscape:p-4 overflow-y-auto border-2 border-black rounded-md dark:border-white ${(loading) ? ' bg-neutral-500' : 'bg-transparent'}`}

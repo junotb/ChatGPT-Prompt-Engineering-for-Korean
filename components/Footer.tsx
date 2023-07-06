@@ -17,7 +17,7 @@ const Footer = ({
 }) => {
   const pathname = usePathname();
   return (
-    <div className="z-10 flex items-center justify-between px-2 text-right min-h-[4rem] landscape:px-4">
+    <div className="z-10 flex items-center justify-between px-2 text-right min-h-[4rem] bg-[rgb(var(--background-rgb))] landscape:px-4">
       <div className="flex gap-8 item-center">
         {
           (pathname === '/') ? '' : (
